@@ -129,3 +129,6 @@
     {!! Form::close() !!}
 
 @endsection
+@section('js')
+@include('emprendedores.js.js')
+@endsection

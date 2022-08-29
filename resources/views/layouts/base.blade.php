@@ -16,6 +16,11 @@
   <link href="{{ asset('/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
   <link href="{{ asset('/assets/css/selectize.min.css')}}" rel="stylesheet" />
   <link href="{{ asset('/assets/css/toastr.css')}}" rel="stylesheet" />
+  {{--fileinput--}}
+  <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/bootstrap-icons.min.css')}}">
+   
+  <!-- the fileinput plugin styling CSS file -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/fileinput.min.css')}}">
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
@@ -52,7 +57,9 @@
   <script src="{{ asset('/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
   <script src="{{ asset('/assets/js/selectize.js')}}"></script>
   <script src="{{ asset('/assets/js/toastr.js')}}"></script>
+
   {!! Toastr::message() !!}
+  @yield('js')
     <script type="text/javascript">   
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
@@ -82,76 +89,6 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 
-var xhr2;
-var xhr3;
-var select_state, $select_state;
-var select_municipality, $select_municipality;
-var select_parish, $select_parish;
-
-$select_state = $('#id_state').selectize({
-    loadingClass: 'loading',
-    onChange: function(value) {
-        if (!value.length) return;
-        /*listar municipios*/
-        select_municipality.disable();
-        select_municipality.clearOptions();
-        select_municipality.load(function(callback) {
-            xhr2 && xhr2.abort();
-            xhr2 = $.ajax({
-                url: '{{ route('municipio_dependiente') }}?estado='+value,
-                success: function(results) {
-                    select_municipality.enable();
-                    callback(results);
-                },
-                error: function() {
-                    callback();
-                }
-            })
-        });
-    }
-});
-
-$select_municipality = $('#id_municipality').selectize({
-                    labelField: 'nombre',
-                    valueField: 'id',
-                    searchField: ['nombre'],
-                    loadingClass: 'loading',
-                    preload: true,
-
-                    onChange: function(value) {
-                    if (!value.length) return;
-                    /*listar parroquias*/
-                    select_parish.disable();
-                    select_parish.clearOptions();
-                    select_parish.load(function(callback) {
-                        xhr3 && xhr3.abort();
-                        xhr3 = $.ajax({
-                            url: '{{ route('parroquia_dependiente') }}?municipio='+value,
-                            success: function(results) {
-                                select_parish.enable();
-                                callback(results);
-                            },
-                            error: function() {
-                                callback();
-                            }
-                        })
-                    });
-                }
-     });
-
-$select_parish = $('#id_parish').selectize({
-                    labelField: 'nombre',
-                    valueField: 'id',
-                    searchField: ['nombre'],
-                    loadingClass: 'loading',
-                });
-
-                select_parish  = $select_parish[0].selectize;
-                select_municipality = $select_municipality[0].selectize;
-                select_state = $select_state[0].selectize;
-
-                select_municipality.disable();
-                select_parish.disable();
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

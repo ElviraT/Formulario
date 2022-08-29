@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateFormationsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('formations', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('id_emprendedor')->index();
+            $table->boolean('tanalisis');
+            $table->boolean('tmarketing');
+            $table->boolean('tjuridico');
+            $table->boolean('comercializacion');
+            $table->string('otaller')->nullable();
+            $table->timestamps();
+
+            $table->foreign('id_emprendedor')->references('id')->on('entrepreneurs');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('formations');
+    }
+}
