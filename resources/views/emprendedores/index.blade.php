@@ -16,19 +16,19 @@
 			<div class="col-6">
 				<div class="input-group input-group-static my-3">
 		            <label>{{'Nombres'}}</label>
-		            <input type="text" name="nombres" class="form-control" id="nombres" required autofocus="true" maxlength="200">
+		            <input type="text" name="nombres" class="form-control" id="nombres" required autofocus="true" maxlength="200" onkeypress="soloLetras(event)">
 		        </div>
 	        </div>
 	        <div class="col-6">
 		        <div class="input-group input-group-static my-3">
 		            <label>{{'Apellidos'}}</label>
-		            <input type="text" name="apellidos" class="form-control" id="apellidos" required maxlength="200">
+		            <input type="text" name="apellidos" class="form-control" id="apellidos" required maxlength="200" onkeypress="soloLetras(event)">
 		        </div>			
 	        </div>
 	        <div class="col-6">
 		        <div class="input-group input-group-static my-3">
 		            <label>{{'Cedula de Identidad'}}</label>
-		            <input type="text" name="cedula" class="form-control" id="cedula" required maxlength="9">
+		            <input type="text" name="cedula" class="form-control" id="cedula" required maxlength="9" onkeypress="SoloNumeros(event)">
 		        </div>			
 	        </div>	
 	        <div class="col-6">
@@ -46,7 +46,7 @@
 	        <div class="col-6">
 		        <div class="input-group input-group-static my-3">
 		            <label>{{'Teléfono'}}</label>
-		            <input type="text" name="telefono" class="form-control" id="telefono" required maxlength="20">
+		            <input type="text" name="telefono" class="form-control" id="telefono" required maxlength="20" onkeypress="SoloNumeros(event)">
 		        </div>			
 	        </div>			
 		</div>

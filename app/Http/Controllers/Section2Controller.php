@@ -24,6 +24,6 @@ class Section2Controller extends Controller
     		Toastr::error('Ocurrió un error, por favor intente de nuevo', '¡Oops!');
     	}
 
-    	return redirect()->route('formacion', $formation->id_emprendedor);
+    	return redirect()->route('figura-juridica', $formation->id_emprendedor);
     }
 }

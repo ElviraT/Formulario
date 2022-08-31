@@ -68,6 +68,6 @@ class Section1Controller extends Controller
     		DB::rollback();
     	}
 
-    	return redirect()->route('inicio', $entrepreneur->id);
+    	return redirect()->route('formacion', $entrepreneur->id);
     }
 }

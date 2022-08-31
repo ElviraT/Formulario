@@ -11,6 +11,7 @@
 
 @section('content')
 	{!! Form::open(['route' => ['section3.add'],  'method' => 'post', 'autocomplete' =>'off', 'class' => 'text-start','files' => true ]) !!}
+
 	<input type="hidden" name="id_emprendedor" id="id_emprendedor" value="{{$id}}">
 	<div class="col-lg-12 col-md-8 col-4 mx-auto">
 		<div class="row">
@@ -170,7 +171,7 @@
 	            <label>{{'Indícanos el Promedio de tus ventas mensuales  '}}</label>
 	            @foreach($rangos as $rango)
 		            <div class="form-check mb-3">
-					  <input class="form-check-input" type="radio" name="figura_juridica" id="customRadio{{$rango->id}}" value="{{$rango->id}}" required>
+					  <input class="form-check-input" type="radio" name="id_promedio" id="customRadio{{$rango->id}}" value="{{$rango->id}}" required>
 					  <label class="custom-control-label" for="customRadio{{$rango->id}}">{{$rango->rango}}</label>
 					</div>
 				@endforeach
