@@ -12,10 +12,12 @@ use App\Models\LegalData;
 use App\Models\SocialNetworks;
 use App\Models\Imagen;
 use App\Models\EconomicData;
+use App\Mail\ConfirmarRegistro;
+use App\Models\Entrepreneur;
 
 use Toastr;
 use Image;
-
+use Mail;
 use DB;
 
 class Section3Controller extends Controller
@@ -30,7 +32,8 @@ class Section3Controller extends Controller
 
 	public function add(Request $request)
 	{
-		$emprendimiento = Entrepreneurship::where('id_emprendedor', $request->id_emprendedor)->first();
+        $emprendimiento = Entrepreneurship::where('id_emprendedor', $request->id_emprendedor)->first();
+		$entrepreneur = Entrepreneur::where('id', $request->id_emprendedor)->first();
 
 		$data= [
 			'id_emprendimiento' 	  => $emprendimiento->id,
@@ -110,6 +113,9 @@ class Section3Controller extends Controller
 
 			$image = new Imagen($imagenes);
 	        $image->save();
+
+
+        Mail::to($entrepreneur->correo)->bcc('elvirateran58@gmail.com')->send(new ConfirmarRegistro($entrepreneur));
 
     		Toastr::success("Registro Agregado Correctamente", '¡Bien!');
     		DB::commit();
