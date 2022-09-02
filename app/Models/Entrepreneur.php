@@ -14,5 +14,6 @@ class Entrepreneur extends Model
       'fecha_nacimiento',
       'correo',
       'telefono',
+      'codigo',
   	 ];
 }

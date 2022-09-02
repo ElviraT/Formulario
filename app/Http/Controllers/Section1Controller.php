@@ -31,11 +31,23 @@ class Section1Controller extends Controller
 		      'cedula' 			 => $request->cedula,
 		      'fecha_nacimiento' => $request->fecha_nacimiento,
 		      'correo' 			 => $request->correo,
-		      'telefono' 		 => $request->telefono,
+              'telefono'         => $request->telefono,
+		      'codigo' 		     => '',
             ];
 
             $entrepreneur = new Entrepreneur($data1);
             $entrepreneur->save();
+        
+            $datos_codigo = [
+                'fecha' => date('dmy'),
+                'estado' => $request->estado,
+                'municipio' => $request->municipio,
+                'parroquia' => $request->parroquia,
+                'nombres' => $request->nombres,
+                'apellidos' => $request->apellidos,
+                'id'        => $entrepreneur->id
+            ];
+
 
             /*GUARDAR DATOS DE EMPRENDIMIENTO*/
             $data2= [
@@ -60,14 +72,31 @@ class Section1Controller extends Controller
 
             $direction = new Direction($data3);
             $direction->save();
+            
+            $this->_generar_codigo($datos_codigo);
 
             Toastr::success("Registro Agregado Correctamente", '¡Bien!');
     		DB::commit();
+            
+
     	} catch (\Throwable $th) {
     		Toastr::error('Ocurrió un error, por favor intente de nuevo', '¡Oops!');
     		DB::rollback();
     	}
 
     	return redirect()->route('formacion', $entrepreneur->id);
+    }
+
+    private function _generar_codigo($emprendedor)
+    {
+        $estado= substr($emprendedor['estado'],0,5);
+        $municipio= substr($emprendedor['municipio'],0,5);
+        $parroquia= substr($emprendedor['parroquia'],0,5);
+        $nombres= substr($emprendedor['nombres'],0,2);
+        $apellidos= substr($emprendedor['apellidos'],0,2);
+
+        $codigo = strtoupper($emprendedor['fecha'].'-'.$estado.'-'.$municipio.'-'.$parroquia.'-'.$nombres.'-'.$apellidos.'-'.$emprendedor['id']);
+       
+       Entrepreneur::where('id', $emprendedor['id'])->update(['codigo'=> $codigo]);
     }
 }

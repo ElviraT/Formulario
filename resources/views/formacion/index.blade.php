@@ -61,7 +61,7 @@
 	        <div class="col-12">
 				<div class="input-group input-group-static my-3">
 		            <label>{{'Otro Taller'}}</label>
-		            <input type="text" name="otaller" class="form-control" id="otaller" maxlength="100" onkeypress="letrasNumeros(event)">
+		            <input type="text" name="otaller" class="form-control" id="otaller" maxlength="100" onkeypress="return letrasNumeros(event)">
 		        </div>
 	        </div>
 		</div>

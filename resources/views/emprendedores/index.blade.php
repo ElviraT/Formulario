@@ -28,7 +28,7 @@
 	        <div class="col-6">
 		        <div class="input-group input-group-static my-3">
 		            <label>{{'Cedula de Identidad'}}</label>
-		            <input type="text" name="cedula" class="form-control" id="cedula" required maxlength="9" onkeypress="SoloNumeros(event)">
+		            <input type="text" name="cedula" class="form-control" id="cedula" required maxlength="9" onkeypress="return SoloNumeros(event)">
 		        </div>			
 	        </div>	
 	        <div class="col-6">
@@ -46,7 +46,7 @@
 	        <div class="col-6">
 		        <div class="input-group input-group-static my-3">
 		            <label>{{'Teléfono'}}</label>
-		            <input type="text" name="telefono" class="form-control" id="telefono" required maxlength="20" onkeypress="SoloNumeros(event)">
+		            <input type="text" name="telefono" class="form-control" id="telefono" required maxlength="20" onkeypress="return SoloNumeros(event)">
 		        </div>			
 	        </div>			
 		</div>
@@ -96,6 +96,7 @@
 		                'required'=>'required'
 		                ])
 		            !!}
+		            <input type="hidden" name="estado" id="estado">
 	        </div>
 	        <div class="col-4 my-3">
 	     			<label>{{'Municipio'}}</label>
@@ -106,6 +107,7 @@
 		                'required'=>'required'
 		                ])
 		            !!}
+		            <input type="hidden" name="municipio" id="municipio">
 	        </div>
 	        <div class="col-4 my-3">
 	     			<label>{{'Parroquia'}}</label>
@@ -116,6 +118,7 @@
 		                'required'=>'required'
 		                ])
 		            !!}
+		            <input type="hidden" name="parroquia" id="parroquia">
 	        </div>
 		</div>
 	</div>

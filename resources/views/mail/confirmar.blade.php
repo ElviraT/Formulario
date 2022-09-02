@@ -10,11 +10,11 @@
         <h3>{{'Estimado usuario: '}} <strong>{{ $entrepreneur->nombres.' '.$entrepreneur->apellidos }}</strong> {{'su registro a finalizado con éxito, el Movimiento Emprendedores de Venezuela, le agradecemos por tomarse el tiempo necesario para llenar los requisitos, su código de registro es: '}}</h3>
                
     <div align="center">
-        <button type="button" style="background-color: #263238; padding: 7px; color: #FFFFFF; border-radius: 10px;">{{'Codigo de registro'}}</button>     
+        <button type="button" style="background-color: #263238; padding: 7px; color: #FFFFFF; border-radius: 10px;">{{$entrepreneur->codigo}}</button>     
     </div>
 <hr>
     <div>
-        {!! QrCode::size(200)->generate($entrepreneur->nombres.' '.$entrepreneur->apellidos); !!}
+        {!! QrCode::size(200)->generate($entrepreneur->nombres.' '.$entrepreneur->apellidos.'-'.$entrepreneur->codigo); !!}
     </div>
     </div>
 </body>

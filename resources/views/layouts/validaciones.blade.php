@@ -76,7 +76,7 @@
         }
     }
 
-    $(document).on('ajaxStart', function() {
+ /*   $(document).on('ajaxStart', function() {
         loading_show();
     })
      
@@ -94,7 +94,7 @@
     
     function loading_hide() {
         $('body').loadingModal('hide');
-    } 
+    } */
 
 
 </script>

@@ -9,6 +9,7 @@ var select_parish, $select_parish;
 $select_state = $('#id_state').selectize({
     loadingClass: 'loading',
     onChange: function(value) {
+      $("#estado").val($("#id_state option:selected").text());    
         if (!value.length) return;
         /*listar municipios*/
         select_municipality.disable();
@@ -37,6 +38,7 @@ $select_municipality = $('#id_municipality').selectize({
                     preload: true,
 
                     onChange: function(value) {
+                    $("#municipio").val($("#id_municipality option:selected").text());
                     if (!value.length) return;
                     /*listar parroquias*/
                     select_parish.disable();
@@ -70,4 +72,8 @@ $select_parish = $('#id_parish').selectize({
 
                 select_municipality.disable();
                 select_parish.disable();
+
+select_parish.on('change', function() {
+    $("#parroquia").val($("#id_parish option:selected").text());
+});
 </script>

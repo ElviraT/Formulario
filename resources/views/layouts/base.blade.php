@@ -57,10 +57,10 @@
   <script src="{{ asset('/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
   <script src="{{ asset('/assets/js/selectize.js')}}"></script>
   <script src="{{ asset('/assets/js/toastr.js')}}"></script>
+  @include('layouts.validaciones')
 
   {!! Toastr::message() !!}
   @yield('js')
-  @include('layouts.validaciones')
     <script type="text/javascript">   
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
