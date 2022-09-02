@@ -20,10 +20,11 @@ class Section2Controller extends Controller
         $formation->save();
 
         Toastr::success("Registro Agregado Correctamente", '¡Bien!');    		
+    	return redirect()->route('figura-juridica', $formation->id_emprendedor);
     	} catch (\Throwable $th) {
     		Toastr::error('Ocurrió un error, por favor intente de nuevo', '¡Oops!');
+            return redirect()->route('formacion', $formation->id_emprendedor);
     	}
 
-    	return redirect()->route('figura-juridica', $formation->id_emprendedor);
     }
 }

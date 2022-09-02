@@ -78,13 +78,14 @@ class Section1Controller extends Controller
             Toastr::success("Registro Agregado Correctamente", '¡Bien!');
     		DB::commit();
             
-
+            return redirect()->route('formacion', $entrepreneur->id);
     	} catch (\Throwable $th) {
     		Toastr::error('Ocurrió un error, por favor intente de nuevo', '¡Oops!');
     		DB::rollback();
+            return redirect()->route('inicio');
     	}
 
-    	return redirect()->route('formacion', $entrepreneur->id);
+    	
     }
 
     private function _generar_codigo($emprendedor)

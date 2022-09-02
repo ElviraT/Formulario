@@ -27,6 +27,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('/assets/css/material-dashboard.css?v=3.0.0')}}" rel="stylesheet" />
+  <!-- Loading -->
+      <link href="{{ asset('/assets/css/jquery.loadingModal.css')}}" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
@@ -57,6 +59,8 @@
   <script src="{{ asset('/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
   <script src="{{ asset('/assets/js/selectize.js')}}"></script>
   <script src="{{ asset('/assets/js/toastr.js')}}"></script>
+  <!-- Loading -->
+  <script src="{{ asset('/assets/js/jquery.loadingModal.js') }}" type="text/javascript"></script>
   @include('layouts.validaciones')
 
   {!! Toastr::message() !!}

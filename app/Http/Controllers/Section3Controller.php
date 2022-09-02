@@ -119,12 +119,13 @@ class Section3Controller extends Controller
 
     		Toastr::success("Registro Agregado Correctamente", '¡Bien!');
     		DB::commit();
+            return view('welcome');
     	} catch (\Throwable $th) {
     		Toastr::error('Ocurrió un error, por favor intente de nuevo', '¡Oops!');
     		DB::rollback();
+            return redirect()->route('figura-juridica', $request->id_emprendedor);
     	}
 
-    	return view('welcome');
 	}
 
 	private function _registro_mercantil($imagen)

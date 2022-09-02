@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-	{!! Form::open(['route' => ['section2.add'],  'method' => 'post', 'autocomplete' =>'off', 'class' => 'text-start' ]) !!}
+	{!! Form::open(['route' => ['section2.add'],  'method' => 'post', 'autocomplete' =>'off', 'class' => 'text-start', 'onSubmit'=> 'return loading_show();']) !!}
 	<input type="hidden" name="id_emprendedor" id="id_emprendedor" value="{{$id}}">
 	<div class="col-lg-12 col-md-8 col-4 mx-auto">
 		<div class="row">

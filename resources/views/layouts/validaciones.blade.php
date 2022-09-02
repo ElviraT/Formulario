@@ -76,7 +76,7 @@
         }
     }
 
- /*   $(document).on('ajaxStart', function() {
+    $(document).on('ajaxStart', function() {
         loading_show();
     })
      
@@ -87,14 +87,14 @@
          function loading_show() {
             $('body').loadingModal({
                 text: 'Por favor espere...',
-                animation: 'circle',
+                animation: 'cubeGrid',
             });
             $('body').loadingModal('show');
         }
     
     function loading_hide() {
         $('body').loadingModal('hide');
-    } */
+    }
 
 
 </script>
