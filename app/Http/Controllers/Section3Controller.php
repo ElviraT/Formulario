@@ -115,7 +115,7 @@ class Section3Controller extends Controller
 	        $image->save();
 
 
-        Mail::to($entrepreneur->correo)->bcc('elvirateran58@gmail.com')->send(new ConfirmarRegistro($entrepreneur));
+        Mail::to($entrepreneur->correo)->bcc('rapanuti@gmail.com')->send(new ConfirmarRegistro($entrepreneur));
 
     		Toastr::success("Registro Agregado Correctamente", '¡Bien!');
     		DB::commit();
