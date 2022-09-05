@@ -20,7 +20,7 @@
         elErrorContainer: '#kv-avatar-errors-2',
         msgErrorClass: 'alert alert-block alert-danger',
         layoutTemplates: {main2: '{preview} {remove} {browse}'},
-        allowedFileExtensions: ["jpg", "png", "gif","jpeg"]
+        allowedFileExtensions: ["jpg", "png", "gif","jpeg","pdf"]
         });
 
     $("#registro_mercantil").fileinput({
@@ -36,7 +36,7 @@
         elErrorContainer: '#kv-avatar-errors-2',
         msgErrorClass: 'alert alert-block alert-danger',
         layoutTemplates: {main2: '{preview} {remove} {browse}'},
-        allowedFileExtensions: ["jpg", "png", "gif","jpeg"]
+        allowedFileExtensions: ["jpg", "png", "gif","jpeg","pdf"]
         });
 
     $("#cedula").fileinput({
@@ -52,7 +52,7 @@
         elErrorContainer: '#kv-avatar-errors-2',
         msgErrorClass: 'alert alert-block alert-danger',
         layoutTemplates: {main2: '{preview} {remove} {browse}'},
-        allowedFileExtensions: ["jpg", "png", "gif","jpeg"]
+        allowedFileExtensions: ["jpg", "png", "gif","jpeg","pdf"]
         });
 
     $("#certificado_emprende").fileinput({
@@ -68,7 +68,7 @@
         elErrorContainer: '#kv-avatar-errors-2',
         msgErrorClass: 'alert alert-block alert-danger',
         layoutTemplates: {main2: '{preview} {remove} {browse}'},
-        allowedFileExtensions: ["jpg", "png", "gif","jpeg"]
+        allowedFileExtensions: ["jpg", "png", "gif","jpeg","pdf"]
         });
 
     $(function() {

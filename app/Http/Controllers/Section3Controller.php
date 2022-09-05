@@ -121,6 +121,7 @@ class Section3Controller extends Controller
     		DB::commit();
             return view('welcome');
     	} catch (\Throwable $th) {
+            dd($th);
     		Toastr::error('Ocurrió un error, por favor intente de nuevo', '¡Oops!');
     		DB::rollback();
             return redirect()->route('figura-juridica', $request->id_emprendedor);
