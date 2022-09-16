@@ -16,7 +16,6 @@ use App\Mail\ConfirmarRegistro;
 use App\Models\Entrepreneur;
 
 use Toastr;
-use QrCode;
 use Image;
 use Mail;
 use DB;
@@ -115,19 +114,12 @@ class Section3Controller extends Controller
 			$image = new Imagen($imagenes);
 	        $image->save();
 
-            $image = \QrCode::format('png')
-                 ->size(200)->errorCorrection('H')
-                 ->generate($entrepreneur->nombres.' '.$entrepreneur->apellidos.'-'.$entrepreneur->codigo);
-$output_file = self::UPLOAD_PATH.'/'.$entrepreneur->id.'/img-qr.png';
-Storage::disk()->put($output_file, $image);
-
         Mail::to($entrepreneur->correo)->bcc('rapanuti@gmail.com')->send(new ConfirmarRegistro($entrepreneur));
 
     		Toastr::success("Registro Agregado Correctamente", '¡Bien!');
     		DB::commit();
             return view('welcome');
     	} catch (\Throwable $th) {
-            dd($th);
     		Toastr::error('Ocurrió un error, por favor intente de nuevo', '¡Oops!');
     		DB::rollback();
             return redirect()->route('figura-juridica', $request->id_emprendedor);
