@@ -43,10 +43,9 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid px-2 px-md-4">
-      <div class="page-header min-height-200 border-radius-xl mt-4" style="background-image: url('{{ asset('assets/img/illustrations/banner.jpeg') }}');">
-        <span class="mask bg-gradient-primary opacity-4"></span>
+      <div class="page-header min-height-200 border-radius-xl mt-4" style="height: 50vh; opacity: 0.8; background-image: url('{{ asset('assets/img/imagen.jpg') }}');">
       </div>
-      <div class="card card-body mx-3 mx-md-4 mt-n6">
+      <div class="card card-body mx-3 mx-md-4 mt-n8">
         @yield('content')        
       </div>
     </div>
