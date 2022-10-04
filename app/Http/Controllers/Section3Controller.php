@@ -17,6 +17,7 @@ use App\Models\Entrepreneur;
 
 use Toastr;
 use Image;
+use QrCode;
 use Mail;
 use DB;
 
@@ -113,6 +114,14 @@ class Section3Controller extends Controller
 
 			$image = new Imagen($imagenes);
 	        $image->save();
+
+	         $image = \QrCode::format('png')
+                 ->size(200)->errorCorrection('H')
+                 ->generate($entrepreneur->nombres.' '.$entrepreneur->apellidos.'-'.$entrepreneur->codigo);
+			
+			$output_file = self::UPLOAD_PATH.'/'.$entrepreneur->id.'/img-qr.png';
+			Storage::disk()->put($output_file, $image);
+
 
         Mail::to($entrepreneur->correo)->bcc('rapanuti@gmail.com')->send(new ConfirmarRegistro($entrepreneur));
 

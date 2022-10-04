@@ -15,6 +15,11 @@
         <div align="center">
             <button type="button" style="background-color: #263238; padding: 7px; color: #FFFFFF; border-radius: 10px;">{{$entrepreneur->codigo}}</button>     
         </div>
+        <hr>
+        <div style="text-align: center;">
+            <img style='display:block;margin-left: auto; margin-right: auto;' src='{{ url('https://www.tywey.com/Formulario/storage/app/documentos/'.$entrepreneur->id.'/img-qr.png') }}' />
+
+        </div>
     </div>
 </body>
 </html>
