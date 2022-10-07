@@ -19,4 +19,14 @@ class LegalData extends Model
       'id_banco',
       'id_bancoA',
   	 ];
+
+    public function Entrepreneurship()
+    {
+        return $this->hasOne('App\Models\Entrepreneurship', 'id_emprendimiento','id');
+    }
+
+    public function Bank()
+    {
+        return $this->hasOne('App\Models\Bank','id');
+    }
 }

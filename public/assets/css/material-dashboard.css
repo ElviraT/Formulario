@@ -25526,10 +25526,14 @@ body:not(.dark-version) .sidenav.bg-transparent .collapse .nav-item .nav-link.ac
 .table.align-items-center td,
 .table.align-items-center th {
   vertical-align: middle;
+
+  border: 1px solid #f0f2f5;
 }
 
 .table tbody tr:last-child td {
   border-width: 0;
+
+  border: 1px solid #f0f2f5;
 }
 
 .table> :not(:last-child)> :last-child>* {

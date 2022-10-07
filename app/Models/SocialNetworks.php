@@ -13,4 +13,9 @@ class SocialNetworks extends Model
       'instagram',
       'twitter'
   	 ];
+
+     public function Entrepreneurship()
+    {
+        return $this->hasOne('App\Models\Entrepreneurship', 'id_emprendimiento','id');
+    }
 }

@@ -16,4 +16,14 @@ class EconomicData extends Model
       'sumar',
       'otra',
   	 ];
+
+    public function Entrepreneurship()
+    {
+        return $this->hasOne('App\Models\Entrepreneurship', 'id_emprendimiento','id');
+    }
+
+    public function Average()
+    {
+        return $this->hasOne('App\Models\Average','id','id_promedio');
+    }
 }

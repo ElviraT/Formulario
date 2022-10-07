@@ -16,4 +16,14 @@ class Entrepreneur extends Model
       'telefono',
       'codigo',
   	 ];
+
+    public function Entrepreneurship()
+    {
+        return $this->hasOne('App\Models\Entrepreneurship', 'id_emprendedor','id');
+    }
+
+    public function Formation()
+    {
+        return $this->hasOne('App\Models\Formation', 'id_emprendedor','id');
+    }
 }

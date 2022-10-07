@@ -15,4 +15,9 @@ class Formation extends Model
       'comercializacion',
       'otaller',
   	 ];
+
+     public function Entrepreneur()
+    {
+        return $this->hasOne('App\Models\Entrepreneur', 'id_emprendedor','id');
+    }
 }
